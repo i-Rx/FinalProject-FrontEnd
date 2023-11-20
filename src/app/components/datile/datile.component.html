@@ -1,0 +1,81 @@
+
+<h1> Information datiles :</h1>
+<div class="container">
+  <div class="card-container">
+    <mat-card>
+      <mat-card-content class="centered-text">
+        {{car.type}}
+      </mat-card-content>
+      <img class="image" mat-card-image [src]="car.imageUrl">
+      <mat-card-actions class="centered-text">
+        <p>Model: {{car.model}}</p>
+        <p style="font-size: 15px; font-weight: 500;">Color: {{car.color}}</p>
+      </mat-card-actions>
+      <div class="fleet-car-price centered-text">
+        <p style="font-size: 15px; font-weight: 500;">{{car.price}} <span class="sar_ar">SR/Day</span></p>
+      </div>
+    </mat-card>
+  </div>
+
+  
+
+  <div class="form-container">
+     <h1> Information datiles :</h1> 
+      <form  [formGroup]="registerForm" class="example-form">
+            
+          <form class="example-form">
+            <mat-form-field class="example-full-width">
+              <mat-label>Email</mat-label>
+                            <input type="email" matInput [formControl]="emailFormControl" [errorStateMatcher]="matcher "  placeholder=" @example.com"  >
+                     
+            </mat-form-field>
+             
+          </form>
+          <mat-error>{{getErrorMessage()}}</mat-error>
+          
+
+        
+        <mat-form-field>
+          <mat-label>National ID:</mat-label>
+          <input type="text"  pattern="[0-9]{10}" formControlName="password"  matInput placeholder=" 10 digit only " >
+          <mat-error>{{ getErrorMessageNum()}}</mat-error>
+        </mat-form-field>
+       
+        <p
+        class="error-msg"
+        *ngIf="passwordInput.invalid   && passwordInput.touched"> Should be an numbers and 10 digit only </p><br>
+        <br>
+
+      <mat-form-field>
+        <mat-label>Enter a date range</mat-label>
+        <mat-date-range-input [rangePicker]="picker">
+          <input matStartDate placeholder="Start date">
+          <input matEndDate placeholder="End date">
+        </mat-date-range-input>
+        <mat-hint>MM/DD/YYYY – MM/DD/YYYY</mat-hint>
+        <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
+        <mat-date-range-picker #picker></mat-date-range-picker>
+      </mat-form-field>
+
+       <br>
+       <br>
+       <br>
+           
+       <h3>Location: </h3>
+       <mat-form-field>
+        <mat-label>Seclet a branch:</mat-label>
+        <mat-select>
+          <mat-option value="one">Riyadh -King Fahad rode - Exit 5</mat-option>
+          <mat-option value="two">Jeddah -King Abdalaziz rode </mat-option>
+        </mat-select>
+      </mat-form-field>
+
+       <br>
+       <br>
+       <br>
+       <div>
+        <button [disabled]=" emailFormControl.invalid && passwordInput.invalid" mat-raised-button color="primary" (click)="initializePayment(197.50)" >Pay now </button>
+      </div>
+    </form>
+  </div>
+</div>

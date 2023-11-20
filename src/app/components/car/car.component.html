@@ -1,0 +1,20 @@
+
+<main>
+<div class="cards">
+    <mat-card  *ngFor="let car of Cars;" style="width: 250px;">
+    <mat-card-content> {{car.type}}</mat-card-content>
+    <img mat-card-image class="carImage" src= {{car.imageUrl}}> 
+    <mat-card-actions><p style="font-size: 15px;font-weight: 500;">Model: {{car.model}} 
+      <p style="font-size: 15px;font-weight: 500;">Color: {{car.color}}</p></mat-card-actions>
+    <div class="fleet-car-price" style="display: flex;justify-content: center;align-items: center;gap: 5px;margin-bottom: 12px;">
+      <p style="font-size: 15px;font-weight: 500;"> {{car.price}} <span class="sar_ar"> SR/Day</span></p>
+  </div>
+
+    <mat-card-footer> <button  routerLink="/datiles/{{car.id}}" mat-raised-button color="primary">Reserve</button></mat-card-footer>
+    </mat-card>
+    
+  </div>
+</main>
+
+
+

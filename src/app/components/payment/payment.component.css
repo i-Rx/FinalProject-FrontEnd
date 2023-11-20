@@ -1,0 +1,14 @@
+
+.centered-text {
+    text-align: center;
+  }
+  
+  .centered-button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .card-container mat-card {
+    height: 100%;
+  }

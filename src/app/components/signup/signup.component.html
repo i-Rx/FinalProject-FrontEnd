@@ -1,0 +1,20 @@
+<br>
+<br>
+<br>
+<br>
+
+<br>
+<section class="hero-section" >
+<form (ngSubmit)="saveUser()" [formGroup]="signUpForm">
+    <label>Username: </label>
+    <input type="text" name="username" formControlName="username"><br>
+    <p *ngIf="usernameInput.invalid && usernameInput.touched">Name must be more then 3 characters</p>
+    <label>Password: </label>
+    <input type="password" name="password" formControlName="password"><br>
+    <p *ngIf="passwordInput.invalid && passwordInput.touched">password must be more then 7 characters</p>
+    <label>Email: </label>
+    <input type="email" name="email" formControlName="email"><br>
+    <p *ngIf="emailInput.invalid && emailInput.touched">email must be in email format</p>
+    <button type="submit" [disabled]="signUpForm.invalid">Sign Up</button>
+</form>
+</section>

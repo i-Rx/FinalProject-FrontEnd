@@ -1,0 +1,21 @@
+
+<br>
+<br>
+<br>
+<br>
+
+
+
+<section class="hero-section" >
+
+<form  (ngSubmit)="login()" [formGroup]="loginForm">
+    <label>Username</label>
+    <input type="text" name="username" formControlName="username"><br>
+    <label>Password</label>
+    <input type="password" name="password" formControlName="password"><br>
+    <p> {{errorMsg}} </p>
+    <button type="submit">login</button><br>
+    <a [routerLink]="['/signup']" >Don't have an account?</a>
+</form>
+
+</section>
