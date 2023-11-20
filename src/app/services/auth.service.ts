@@ -9,6 +9,7 @@ import { User } from '../model/User.model';
 export class AuthService {
   
   readonly authApiUrl = "http://localhost:8111/carRental/auth"
+  public isloggedIn = localStorage.getItem('isLoggedIn') === 'true';
   constructor(private http: HttpClient) {}
 
   isAuthenticatied(): boolean {
@@ -29,10 +30,11 @@ export class AuthService {
   }
 
 
-  signUp(username: string, password:string, email: string ): Observable<User>{
-    const user: User = new User( username, password, email)
+  signUp(user: User): Observable<User>{
     return this.http.post<User>(`${this.authApiUrl}/signup`, user)
   }
+
+
   login(username: string, password: string): Observable<any>{
     const body = {username, password}
     return this.http.post<any>(`${this.authApiUrl}/signin`, body)

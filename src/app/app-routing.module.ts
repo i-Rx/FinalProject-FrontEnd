@@ -11,6 +11,7 @@ import { AuthGuardService } from './services/auth-guard.service';
 import { LogoutComponent } from './components/logout/logout.component';
 
 
+
 const routes: Routes = [
   { path: '', 
   // canActivate: [AuthGuardService],
@@ -33,7 +34,7 @@ const routes: Routes = [
   { path: 'logout',
   // canActivate: [AuthGuardService],
   component: LogoutComponent },
-  
+
   { path: 'cars',
   // canActivate: [AuthGuardService],
   component: CarComponent },
@@ -43,6 +44,7 @@ const routes: Routes = [
   { path: 'payments',
     // canActivate: [AuthGuardService],
     component: PaymentComponent },
+   
     
   {
     path: "**", // 404 Page

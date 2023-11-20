@@ -26,12 +26,16 @@ export class SignupComponent {
     })
   }
 
+  
     saveUser(){
-      this.signUpApi.signUp(
-        this.signUpForm.value.username,
+      const user: User = new User(this.signUpForm.value.username,
         this.signUpForm.value.password,
-        this.signUpForm.value.email,
-      ).subscribe({
+        this.signUpForm.value.email,)
+
+        console.log(user);
+
+      this.signUpApi.signUp(user).subscribe({
+
         next: (users: User)=>{
         console.log("created", [users])
         

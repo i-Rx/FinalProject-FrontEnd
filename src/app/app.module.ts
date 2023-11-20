@@ -29,6 +29,7 @@ import { LogoutComponent } from './components/logout/logout.component';
 
 
 
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -42,6 +43,7 @@ import { LogoutComponent } from './components/logout/logout.component';
     SignupComponent,
     LoginComponent,
     LogoutComponent,
+    
     
   ],
   imports: [

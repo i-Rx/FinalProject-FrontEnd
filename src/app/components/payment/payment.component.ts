@@ -43,7 +43,8 @@ export class PaymentComponent {
       locale: 'auto',
       token: function (stripeToken: any) {
         console.log({stripeToken})
-        alert('Payment has been successfull!');
+        // alert('Payment has been successfull!');
+        this.router.navigate(["/book"])
       }
     });
   
@@ -66,7 +67,8 @@ export class PaymentComponent {
           locale: 'auto',
           token: function (stripeToken: any) {
             console.log(stripeToken)
-            alert('Payment has been successfull!');
+            // alert('Payment has been successfull!');
+            this.router.navigate(["/book"])
           }
         });
       }

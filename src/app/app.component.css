@@ -11,7 +11,7 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 20px 50px;
+    padding: 10px 50px;
     background-color: ivory;
   }
   body{
@@ -30,7 +30,7 @@
   
   header ul li {
     display: inline;
-    padding: 0 9px;
+    padding: 0 7px;
   }
   .button_login{
     padding: 1em 2em;
