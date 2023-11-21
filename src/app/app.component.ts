@@ -10,7 +10,7 @@ import { Router } from '@angular/router';
 export class AppComponent {
   title = 'Car Rental ';
 
-  constructor(private authApi:  AuthService, private router: Router){}
+  constructor(public authApi:  AuthService, private router: Router){}
   logout(){
     this.authApi.logout()
     this.router.navigate(["/login"])

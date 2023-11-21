@@ -25,6 +25,14 @@ export class BookService {
   getBook(): Observable<any > {
     return this.http.get(`${this.apiUrl}`);
   }
+
+  getBookByUserId(userId: number, token:string): Observable<any > {
+        const headers = new HttpHeaders({
+      'Content-Type': 'application/json',
+      'Authorization': `Bearer ${token}`
+    });
+    return this.http.get(`${this.apiUrl}/${userId}`, {headers});
+  }
   // getCarsid(id: string): Observable<any> {
   //   return this.http.get(`${this.apiUrl}/${id}`); 
   // }

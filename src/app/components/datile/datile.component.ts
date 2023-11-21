@@ -14,7 +14,14 @@ import { Book } from 'src/app/model/Book.model';
 })
 export class DatileComponent {
 
-  car!: Car;
+  car: Car = {
+    id: 0,
+    type: '',
+    model: 0,
+    color: '',
+    imageUrl: '',
+    price: 0
+  }
   paymentHandler:any = null;
   book: Book = {
     bookCode :'',

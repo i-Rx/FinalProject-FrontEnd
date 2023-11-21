@@ -12,22 +12,41 @@ import { CarService } from 'src/app/services/car.service';
 export class BookComponent {
   books : Book []= []
   // car! : Car;
-  // id: any;
-
+  id: any;
+  token: any;
   constructor(private bookService : BookService , private carService : CarService,) {}
 
 
   ngOnInit(): void {
-    this.getBooks();
+    this.id = this.getUserIdFromLocalStorage();
+    this.token = this.getToken();
+    this.getBooksByUserId(this.id, this.token);
     // this.getCarsid(this.id);
   }
-  getBooks() {
-    this.bookService.getBook().subscribe((data) => {
+  getBooksByUserId(userId: number, token:string) {
+    this.bookService.getBookByUserId(userId, token).subscribe((data) => {
       this.books = data;
     });
 }
 
-// getCarsid(id: string){
+getToken(){
+  const tokenStorage = localStorage.getItem('Token');
+
+
+  return tokenStorage;
+}
+
+  getUserIdFromLocalStorage(){
+    const currentUserString = localStorage.getItem('currentUser');
+    let userId = 0;
+    if(currentUserString){
+      const currentUser = JSON.parse(currentUserString);
+      userId = currentUser.id;
+    }
+    return userId;
+  }
+
+// getBookid(id: string){
 //   return this.carService.getCarsid(id).subscribe(
 //     cars => {
 //       this.car = cars
