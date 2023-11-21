@@ -13,5 +13,6 @@
     <input type="email" name="email" formControlName="email"><br>
     <p *ngIf="emailInput.invalid && emailInput.touched">email must be in email format</p>
     <button type="submit" [disabled]="signUpForm.invalid">Sign Up</button>
+    
 </form>
 </section>

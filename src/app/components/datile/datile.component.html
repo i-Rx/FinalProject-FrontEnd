@@ -38,14 +38,9 @@
         <mat-form-field>
           <mat-label>National ID:</mat-label>
           <input type="text"  pattern="[0-9]{10}" formControlName="password"  matInput placeholder=" 10 digit only " formControlName="nationalId">
-          <mat-error>{{ getErrorMessageNum()}}</mat-error>
         </mat-form-field>
-       
-        <p
-        class="error-msg"
-        *ngIf="passwordInput.invalid   && passwordInput.touched"> Should be an numbers and 10 digit only </p><br>
-        <br>
-
+        <p class="error"  *ngIf="nationalId.invalid && nationalId.touched"> Should be an numbers and 10 digit only </p><br>
+      <br>
       <mat-form-field>
         <mat-label>Enter a date range</mat-label>
         <mat-date-range-input [rangePicker]="picker">

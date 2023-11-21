@@ -3,6 +3,7 @@ import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { User } from 'src/app/model/User.model';
 import { AuthService } from 'src/app/services/auth.service';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-login',
@@ -38,6 +39,7 @@ export class LoginComponent {
         this.loginApi.authenticate().subscribe({
           next: (userData: User) =>{
             localStorage.setItem("currentUser", JSON.stringify(userData))
+            Swal.fire('Success!', 'Login successfuly', 'success')
             this.router.navigate(["/home"])
           }
         })

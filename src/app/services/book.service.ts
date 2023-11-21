@@ -8,23 +8,25 @@ import { Book } from '../model/Book.model';
 })
 export class BookService {
 
-  private apiUrl = 'http://localhost:8111/books/add';
+  private apiUrl = 'http://localhost:8111/carRental/books';
+ 
 
   constructor(private http: HttpClient) {}
 
   addBook(book: Book, token: String): Observable<any > {
-    const headers = new HttpHeaders({
-      'Content-Type': 'application/json',
-      'Authorization': `Bearer ${token}`
-    });
+    // const headers = new HttpHeaders({
+    //   'Content-Type': 'application/json',
+    //   'Authorization': `Bearer ${token}`
+    // });
     
-    return this.http.post(`${this.apiUrl}`, book, {headers});
+    return this.http.post(`${this.apiUrl}/add`, book);
   }
 
   getBook(): Observable<any > {
     return this.http.get(`${this.apiUrl}`);
   }
-
-
+  // getCarsid(id: string): Observable<any> {
+  //   return this.http.get(`${this.apiUrl}/${id}`); 
+  // }
 
 }

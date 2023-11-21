@@ -31,6 +31,7 @@ import { BookComponent } from './components/book/book.component';
 
 
 
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -44,6 +45,7 @@ import { BookComponent } from './components/book/book.component';
     LoginComponent,
     LogoutComponent,
     BookComponent,
+    
     
     
   ],
@@ -61,7 +63,7 @@ import { BookComponent } from './components/book/book.component';
       MatInputModule,
       ReactiveFormsModule,
       MatMenuModule,
-      MatSelectModule
+      MatSelectModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

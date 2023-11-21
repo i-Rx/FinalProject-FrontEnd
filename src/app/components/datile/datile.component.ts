@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import { Car } from 'src/app/model/Car.model';
 import { CarService } from 'src/app/services/car.service';
 import { ActivatedRoute, Router } from '@angular/router';
-import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { MyErrorStateMatcher } from 'src/app/app.module';
 import { BookService } from 'src/app/services/book.service';
 import { Book } from 'src/app/model/Book.model';
@@ -17,6 +17,7 @@ export class DatileComponent {
   car!: Car;
   paymentHandler:any = null;
   book: Book = {
+    bookCode :'',
     nationalID: 0,
     startDate: '',
     endDate: '',
@@ -33,6 +34,7 @@ export class DatileComponent {
   startDate: FormControl;
   endDate: FormControl;
   location: FormControl;
+  myForm: FormGroup;
   emailFormControl = new FormControl('', [Validators.required, Validators.email]);
   matcher = new MyErrorStateMatcher();
  id: any;
@@ -41,7 +43,13 @@ export class DatileComponent {
   constructor(
     private carService : CarService,
      private route: ActivatedRoute, private bookService:BookService,
-     private router: Router,) {
+     private router: Router,
+     private fb: FormBuilder) {
+      this.myForm = this.fb.group({
+        nationalId: ['', [Validators.pattern('[0-9]{10}')]],
+       
+      });
+      
     
 
       this.emailInput = new FormControl('', [Validators.required, Validators.email]);
@@ -50,6 +58,7 @@ export class DatileComponent {
       this.startDate = new FormControl('');
       this.endDate = new FormControl('');
       this.location = new FormControl('');
+      
     
       this.book.userId = this.getUserIdFromLocalStorage();
       this.token = this.getToken();
@@ -61,6 +70,7 @@ export class DatileComponent {
       endDate: this.endDate,
       location: this.location,
      }
+     
     
     );
   }
@@ -90,26 +100,20 @@ export class DatileComponent {
     )
   }
  
+ 
   addBook(book: Book){
-    return this.bookService.addBook(book, this.token).subscribe(
-      response => {
-        console.log(response);
-      
+    return this.bookService.addBook(book, this.token).subscribe({
+      next: (bookss) => {
+        console.log(bookss)
       },
-      error => {
-        console.log(error);
-      }
-    )
+      error: (err) => {
+        console.log(err)
+      } 
+    })
   }
-
   getErrorMessage() {
    
     return this.emailFormControl.hasError('email') ? 'Not a valid email' : '';
-  }
-
-  getErrorMessageNum() {
-   
-    return this.passwordInput.hasError('password') ? 'Wrong.. Should be a numbers and 10 digit' : '';
   }
 
   getUserIdFromLocalStorage(){
@@ -132,7 +136,6 @@ export class DatileComponent {
       key: 'pk_test_sLUqHXtqXOkwSdPosC8ZikQ800snMatYMb',
       locale: 'auto',
       token:  (stripeToken: any) =>{
-        alert('Payment has been successfull!');
         this.router.navigateByUrl("/book")
         
 
@@ -171,7 +174,6 @@ export class DatileComponent {
           locale: 'auto',
           token:  (stripeToken: any)=> {
             console.log(stripeToken)
-            alert('Payment has been successfull!');
             this.router.navigate(["/", "book"])
           }
         });

@@ -1,10 +1,27 @@
 <br>
 <br>
 <br>
-<br>
-<br>
-<br>
-<br>
 
 
-<p>book works!</p>
+
+<main>
+    <div class="center-container" >
+        <div  class="receipt-container" *ngFor="let book of books" style="width: 300px;">
+            <div  class="header">
+                <h2 class="title">Receipt</h2> <br><br>
+                <!-- <img  src= {{car.imageUrl}}>  -->
+        <p class="book-code"style="font-size: 15px;font-weight: 500;"><strong>Book Code: ( {{book.bookCode}} )</strong> </p><br>
+      <p style="font-size: 15px;font-weight: 500;">NationalID: {{book.nationalID}} <br>
+          <p style="font-size: 15px;font-weight: 500;"> StartDate: <br>{{book.startDate}}</p><br>
+          <p style="font-size: 15px;font-weight: 500;"> EndDate: <br> {{book.endDate}} </p><br>
+          <p style="font-size: 15px;font-weight: 500;"> Location: <br>{{book.location}} </p><br>
+      
+      </div>
+    </div>
+      </div>
+    </main>
+    
+    
+    
+    
+

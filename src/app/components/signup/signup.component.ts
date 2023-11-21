@@ -4,6 +4,7 @@ import { Router } from '@angular/router';
 import { User } from 'src/app/model/User.model';
 import { AuthService } from 'src/app/services/auth.service';
 
+
 @Component({
   selector: 'app-signup',
   templateUrl: './signup.component.html',
@@ -40,9 +41,11 @@ export class SignupComponent {
         next: (users: User)=>{
         console.log("created", [users])
         
+        
       },
         error: (err) => console.log(err)
       })
+     
       this.router.navigate(["/"])
     }
 
