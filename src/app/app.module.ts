@@ -9,7 +9,7 @@ import { HomeComponent } from './components/home/home.component';
 import { CarComponent } from './components/car/car.component';
 import { NaviComponent } from './components/navi/navi.component';
 import { DatileComponent } from './components/datile/datile.component';
-import { PaymentComponent } from './components/payment/payment.component';
+
 import { TheuserComponent } from './components/theuser/theuser.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatCardModule } from "@angular/material/card";
@@ -25,6 +25,7 @@ import {MatSelectModule} from '@angular/material/select';
 import { SignupComponent } from './components/signup/signup.component';
 import { LoginComponent } from './components/login/login.component';
 import { LogoutComponent } from './components/logout/logout.component';
+import { BookComponent } from './components/book/book.component';
 
 
 
@@ -37,12 +38,12 @@ import { LogoutComponent } from './components/logout/logout.component';
     CarComponent,
     NaviComponent,
     DatileComponent,
-    PaymentComponent,
     TheuserComponent,
     PageNotFoundComponentComponent,
     SignupComponent,
     LoginComponent,
     LogoutComponent,
+    BookComponent,
     
     
   ],

@@ -37,7 +37,7 @@
         
         <mat-form-field>
           <mat-label>National ID:</mat-label>
-          <input type="text"  pattern="[0-9]{10}" formControlName="password"  matInput placeholder=" 10 digit only " >
+          <input type="text"  pattern="[0-9]{10}" formControlName="password"  matInput placeholder=" 10 digit only " formControlName="nationalId">
           <mat-error>{{ getErrorMessageNum()}}</mat-error>
         </mat-form-field>
        
@@ -49,8 +49,8 @@
       <mat-form-field>
         <mat-label>Enter a date range</mat-label>
         <mat-date-range-input [rangePicker]="picker">
-          <input matStartDate placeholder="Start date">
-          <input matEndDate placeholder="End date">
+          <input matStartDate placeholder="Start date" formControlName="startDate">
+          <input matEndDate placeholder="End date" formControlName="endDate">
         </mat-date-range-input>
         <mat-hint>MM/DD/YYYY – MM/DD/YYYY</mat-hint>
         <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
@@ -64,9 +64,9 @@
        <h3>Location: </h3>
        <mat-form-field>
         <mat-label>Seclet a branch:</mat-label>
-        <mat-select>
-          <mat-option value="one">Riyadh -King Fahad rode - Exit 5</mat-option>
-          <mat-option value="two">Jeddah -King Abdalaziz rode </mat-option>
+        <mat-select formControlName="location">
+          <mat-option value="Riyadh -King Fahad rode - Exit 5">Riyadh -King Fahad rode - Exit 5</mat-option>
+          <mat-option value="Jeddah -King Abdalaziz rode">Jeddah -King Abdalaziz rode </mat-option>
         </mat-select>
       </mat-form-field>
 
@@ -74,7 +74,7 @@
        <br>
        <br>
        <div>
-        <button [disabled]=" emailFormControl.invalid && passwordInput.invalid" mat-raised-button color="primary" (click)="initializePayment(197.50)" >Pay now </button>
+        <button [disabled]=" emailFormControl.invalid && passwordInput.invalid" mat-raised-button color="primary" (click)="initializePayment(car.price)" >Pay now </button>
       </div>
     </form>
   </div>

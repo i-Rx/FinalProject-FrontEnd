@@ -28,7 +28,8 @@ export class SignupComponent {
 
   
     saveUser(){
-      const user: User = new User(this.signUpForm.value.username,
+      const user: User = new User(
+        this.signUpForm.value.username,
         this.signUpForm.value.password,
         this.signUpForm.value.email,)
 

@@ -1,17 +1,14 @@
-import { Car } from "./Car.model";
-import { User } from "./User.model";
 
-export class Book {
+
+export interface Book {
     
-    constructor(
-      private bookCode: string,
-      private nationalID: number,
-      private startDate : string,
-      private endDate : string,
-      private location :string,
-      private user: User,
-      private car: Car,
-      
-    ) {}
+       nationalID: number,
+       startDate : string,
+       endDate : string,
+       location :string,
+       userId: number,
+       carId: number,
+  
+
 
 }
