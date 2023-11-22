@@ -4,7 +4,7 @@
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 16.2.9.
 
 ## Use Case Diagram
-![Use Case diagram](classdiagram.png)
+![Use Case diagram](usecase.png)
 
 ## Development server
 
