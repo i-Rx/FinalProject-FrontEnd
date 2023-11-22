@@ -5,14 +5,14 @@
 <br>
 <br>
 <br>
-    <div *ngFor="let item of users" >
+    <form *ngFor="let item of users" >
       <div>
         <div>
           <p><strong>username: </strong>{{item.username}}</p>
           <p><strong>Email:</strong> {{item.email}}</p>
         </div>
       </div>
-    </div>
+    </form>
     <app-edit-profile></app-edit-profile>
 
 
