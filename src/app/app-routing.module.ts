@@ -9,6 +9,8 @@ import { SignupComponent } from './components/signup/signup.component';
 import { AuthGuardService } from './services/auth-guard.service';
 import { LogoutComponent } from './components/logout/logout.component';
 import { BookComponent } from './components/book/book.component';
+import { ProfileComponent } from './components/profile/profile.component';
+import { EditProfileComponent } from './components/edit-profile/edit-profile.component';
 
 
 
@@ -24,13 +26,11 @@ const routes: Routes = [
     path: 'signup',
     component: SignupComponent
   },
-
   {
     path: 'login',
     component: LoginComponent
   },
-  
-  
+
   { path: 'logout',
   canActivate: [AuthGuardService],
   component: LogoutComponent },
@@ -38,6 +38,7 @@ const routes: Routes = [
   { path: 'cars',
   canActivate: [AuthGuardService],
   component: CarComponent },
+
   { path: 'datiles/:id',
     canActivate: [AuthGuardService],
     component: DatileComponent },
@@ -45,6 +46,16 @@ const routes: Routes = [
     { path: 'book',
     canActivate: [AuthGuardService],
     component: BookComponent },
+    {
+      path: "profile",
+      // canActivate: [AuthGuardService],
+      component: ProfileComponent
+    },
+    {
+      path: "edit-profile/:id",
+      canActivate: [AuthGuardService],
+      component: EditProfileComponent
+    },
   {
     path: "**", // 404 Page
     component: PageNotFoundComponentComponent,

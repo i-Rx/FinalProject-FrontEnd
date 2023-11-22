@@ -33,8 +33,9 @@ export class BookService {
     });
     return this.http.get(`${this.apiUrl}/${userId}`, {headers});
   }
-  // getCarsid(id: string): Observable<any> {
-  //   return this.http.get(`${this.apiUrl}/${id}`); 
-  // }
+
+  deleteBookid(id: string): Observable<any> {
+    return this.http.delete(`${this.apiUrl}/delete/${id}`); 
+  }
 
 }

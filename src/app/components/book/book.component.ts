@@ -11,7 +11,6 @@ import { CarService } from 'src/app/services/car.service';
 })
 export class BookComponent {
   books : Book []= []
-  // car! : Car;
   id: any;
   token: any;
   constructor(private bookService : BookService , private carService : CarService,) {}
@@ -21,7 +20,6 @@ export class BookComponent {
     this.id = this.getUserIdFromLocalStorage();
     this.token = this.getToken();
     this.getBooksByUserId(this.id, this.token);
-    // this.getCarsid(this.id);
   }
   getBooksByUserId(userId: number, token:string) {
     this.bookService.getBookByUserId(userId, token).subscribe((data) => {
@@ -46,12 +44,18 @@ getToken(){
     return userId;
   }
 
-// getBookid(id: string){
-//   return this.carService.getCarsid(id).subscribe(
-//     cars => {
-//       this.car = cars
+  
+  deleteBook(userId: string) {
+   return this.bookService.deleteBookid(userId).subscribe({
+    next: (book) => {
+      this.books = [book]
+      console.log(book)
+      console.log('Successfully deleted.');
+    },
+    error: (error) => {
+      console.error('Error deleting:', error);
     
-//     }
-//   )
-// }
+    }
+  });
+}
 }

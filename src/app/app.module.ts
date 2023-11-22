@@ -2,7 +2,7 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { HttpClientModule } from '@angular/common/http';
 import { FormControl, FormGroupDirective, FormsModule, NgForm, ReactiveFormsModule, Validators } from '@angular/forms';
-
+import { CommonModule } from '@angular/common';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HomeComponent } from './components/home/home.component';
@@ -26,9 +26,8 @@ import { SignupComponent } from './components/signup/signup.component';
 import { LoginComponent } from './components/login/login.component';
 import { LogoutComponent } from './components/logout/logout.component';
 import { BookComponent } from './components/book/book.component';
-
-
-
+import { EditProfileComponent } from './components/edit-profile/edit-profile.component';
+import { ProfileComponent } from './components/profile/profile.component';
 
 
 
@@ -45,8 +44,9 @@ import { BookComponent } from './components/book/book.component';
     LoginComponent,
     LogoutComponent,
     BookComponent,
-    
-    
+    EditProfileComponent,
+    ProfileComponent
+     
     
   ],
   imports: [
@@ -64,6 +64,7 @@ import { BookComponent } from './components/book/book.component';
       ReactiveFormsModule,
       MatMenuModule,
       MatSelectModule,
+      CommonModule
   ],
   providers: [],
   bootstrap: [AppComponent]

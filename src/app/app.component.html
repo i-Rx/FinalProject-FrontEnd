@@ -9,7 +9,8 @@
             
             <li><a *ngIf="authApi.isloggedIn" class="button_login" href="/home">Home</a> </li>
             <li><a *ngIf="authApi.isloggedIn" class="button_login" href="/cars">Book Now</a> </li>
-            <li><a  *ngIf="authApi.isloggedIn" class="button_login" href="/book">Books</a></li>
+            <li><a  *ngIf="authApi.isloggedIn" class="button_login" href="/book">All books</a></li>
+            <li><a  class="button_login" href="/profile">Profile</a></li>
             <li><a *ngIf="!authApi.isloggedIn" class="button_login"  href="/login">Login</a></li>
             <li><app-logout *ngIf="authApi.isloggedIn"></app-logout></li>
             

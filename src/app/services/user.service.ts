@@ -8,7 +8,7 @@ import { Observable } from 'rxjs';
 })
 export class UserService {
 
-  private apiUrl = 'http://localhost:8111/users';
+  private apiUrl = 'http://localhost:8111/carRental/users';
 
   constructor(private http: HttpClient) {}
 
@@ -16,6 +16,12 @@ export class UserService {
     return this.http.get(`${this.apiUrl}`);
   }
   updateUserById(id: number, user: any): Observable<any>{
-    return this.http.put(`${this.apiUrl}/users/update/${id}`, user)
+    return this.http.put(`${this.apiUrl}/update/${id}`, user)
+  }
+
+  getUsersById(id: number): Observable<any > {
+    return this.http.get(`${this.apiUrl}/${id}`);
+
+
   }
 }
