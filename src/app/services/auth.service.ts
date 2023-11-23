@@ -37,12 +37,11 @@ export class AuthService {
 
   login(username: string, password: string): Observable<any>{
     const body = {username, password}
-    this.isloggedIn = true
-    localStorage.setItem("isLoggedIn", "true")
     return this.http.post<any>(`${this.authApiUrl}/signin`, body)
   }
   logout(){
     this.isloggedIn = false
+
     localStorage.removeItem("Token")
     localStorage.removeItem("currentUser")
   }

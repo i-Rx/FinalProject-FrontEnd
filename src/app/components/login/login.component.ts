@@ -34,6 +34,8 @@ export class LoginComponent {
         console.log("Login successfuly")
         localStorage.removeItem("Token")
         localStorage.setItem("Token", response.token)
+        localStorage.setItem("isLoggedIn", "true")
+        this.loginApi.isloggedIn= true
       
 
         this.loginApi.authenticate().subscribe({

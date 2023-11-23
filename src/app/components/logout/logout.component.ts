@@ -13,6 +13,8 @@ export class LogoutComponent {
   constructor(private authApi:  AuthService, private router: Router){}
   logout(){
     this.authApi.logout()
+        // localStorage.setItem("isLoggedIn", "true")
+      localStorage.removeItem("isLoggedIn")
     this.router.navigate(["/login"])
   }
 }
