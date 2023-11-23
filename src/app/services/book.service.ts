@@ -14,12 +14,7 @@ export class BookService {
   constructor(private http: HttpClient) {}
 
   addBook(book: Book, token: String): Observable<any > {
-    // const headers = new HttpHeaders({
-    //   'Content-Type': 'application/json',
-    //   'Authorization': `Bearer ${token}`
-    // });
-    
-    return this.http.post(`${this.apiUrl}/add`, book);
+ return this.http.post(`${this.apiUrl}/add`, book);
   }
 
   getBook(): Observable<any > {
